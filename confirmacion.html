@@ -5,39 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmación de Asistencia 🎉</title>
     <style>
+        /* Estilos generales */
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            color: #333;
+            background: linear-gradient(135deg, #6DD5FA, #FF758C);
+            color: white;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            color: #ff5722;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin: 10px 0;
         }
         h2 {
-            color: #333;
+            font-size: 1.8em;
             margin-top: 10px;
         }
         p {
             font-size: 1.2em;
-            color: #555;
+            margin: 20px 0;
         }
         form {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             display: inline-block;
             max-width: 400px;
             width: 100%;
-            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: #333;
         }
         label {
             font-size: 1.2em;
-            color: #333;
+            margin-top: 10px;
+            display: block;
         }
         input, select, button {
             margin-top: 10px;
@@ -48,23 +50,25 @@
             border: 1px solid #ddd;
         }
         button {
-            background-color: #ff5722;
+            background-color: #FF758C;
             color: white;
             border: none;
             cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
         }
         button:hover {
-            background-color: #e64a19;
+            background-color: #FF5766;
         }
         .emoji-option {
-            font-size: 2em;
+            font-size: 2.5em;
             cursor: pointer;
             margin: 5px;
             padding: 10px;
             display: inline-block;
         }
         .emoji-option:hover {
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
         .yes {
             color: #4CAF50;
@@ -72,30 +76,46 @@
         .no {
             color: #F44336;
         }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
-    <h1>🎉 ¡Confirmación de Asistencia a la Fiesta de Colores! 🎉</h1>
+    <h1>🎨 ¡Confirmación de la Fiesta de Colores! 🎉</h1>
     <h2>Gemelas Cumpleañeras 👯‍♀️</h2>
-    <p>¡Estamos emocionados de celebrar este día tan especial contigo! Por favor, confirma tu asistencia:</p>
+    <p>¡Estamos súper emocionados de verte en esta fiesta especial!</p>
+    <p>
+        🌈 <strong>Temática:</strong> Fiesta de Colores (Ven vestido con tu color asignado). <br>
+        🎂 <strong>Fecha:</strong> 15 de enero de 2025. <br>
+        🕖 <strong>Hora:</strong> 7:00 PM. <br>
+        📍 <strong>Lugar:</strong> Casa de los abuelos.
+    </p>
     <form action="https://formspree.io/f/tu-enlace" method="POST">
         <label for="nombre">Nombre de la familia:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Familia Gómez" required>
         
         <label for="asistencia">¿Van a asistir?</label>
         <div>
-            <span class="emoji-option yes" onclick="seleccionar('Sí')">😊</span>
+            <span class="emoji-option yes" onclick="seleccionar('Sí')">😄</span>
             <span class="emoji-option no" onclick="seleccionar('No')">😢</span>
         </div>
         <input type="hidden" id="asistencia" name="asistencia" required>
         
         <button type="submit">Enviar Confirmación</button>
     </form>
+    <p class="footer">¡Contamos contigo para que sea una celebración inolvidable! 🎉</p>
 
     <script>
         function seleccionar(valor) {
             document.getElementById('asistencia').value = valor;
-            alert("Has seleccionado: " + (valor === 'Sí' ? '¡Nos veremos en la fiesta! 🎉' : '¡Te echaremos de menos! 😢'));
+            if (valor === 'Sí') {
+                alert("¡Gracias! Estamos emocionados de verte en la fiesta. 🎉");
+            } else {
+                alert("¡Qué pena! Te echaremos mucho de menos. 😢");
+            }
         }
     </script>
 </body>
