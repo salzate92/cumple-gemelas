@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmación de Asistencia 🎉</title>
     <style>
+        /* Estilos generales */
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
+            background: linear-gradient(135deg, #FFE985, #FF97B7);
             color: #333;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            font-size: 2.8em;
+            font-size: 3em;
             margin: 10px 0;
-            color: #FF758C;
+            color: #FF6363;
         }
         h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-top: 5px;
-            color: #6D5DF5;
+            color: #333;
         }
         p {
             font-size: 1.2em;
@@ -29,67 +30,81 @@
             color: #555;
         }
         .emoji-option {
-            font-size: 3em;
+            font-size: 3.5em;
             cursor: pointer;
             margin: 10px;
             padding: 15px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            background: white;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
         .emoji-option:hover {
             transform: scale(1.2);
-            background-color: #FFEEED;
+            background-color: #FFF5F8;
         }
         .yes {
-            color: #4CAF50;
+            color: #28A745;
         }
         .no {
-            color: #F44336;
+            color: #DC3545;
         }
         #mensaje-respuesta {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-top: 20px;
             font-weight: bold;
-            color: #333;
         }
         .footer {
             margin-top: 30px;
-            font-size: 0.9em;
+            font-size: 1em;
             color: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
 <body>
     <h1>🎨 ¡Confirmación de la Fiesta de Colores! 🎉</h1>
-    <h2>Cumpleaños de las Gemalas 👯‍♀️</h2>
-    <p>¡Estamos  emocionados de compartir con ustedes en este día tan especial!</p>
+    <h2>Cumpleaños de las Gemelas 👯‍♀️</h2>
+    <p>¡Estamos emocionados de celebrar contigo este día tan especial!</p>
     <p>
-        🌈 <strong>Temática:</strong> Fiesta de Colores. Ven vestido con tu color asignado y trae 5 productos para compartir. <br>
+        🌈 <strong>Temática:</strong> Fiesta de Colores (Ven con tu color asignado y trae 5 productos para compartir). <br>
         🎂 <strong>Fecha:</strong> 18 de enero de 2025. <br>
         🕖 <strong>Hora:</strong> 7:00 PM. <br>
-        📍 <strong>Lugar:</strong> Calle 35 a # 86-61.
+        📍 <strong>Lugar:</strong> Calle 35 # 86-61.
     </p>
     <p>Por favor, selecciona una opción:</p>
     <div>
-        <span class="emoji-option yes" onclick="confirmarAsistencia('Sí')">😄</span>
-        <span class="emoji-option no" onclick="confirmarAsistencia('No')">😢</span>
+        <span class="emoji-option yes" onclick="registrarAsistencia('Sí')">😄</span>
+        <span class="emoji-option no" onclick="registrarAsistencia('No')">😢</span>
     </div>
     <p id="mensaje-respuesta"></p>
 
     <script>
-        function confirmarAsistencia(opcion) {
+        function registrarAsistencia(opcion) {
             const mensaje = document.getElementById("mensaje-respuesta");
             if (opcion === "Sí") {
-                mensaje.innerHTML = "¡Sí, yuju! 🎉 ¡Contamos contigo para celebrar con las gemelas! 👯‍♀️";
-                mensaje.style.color = "#4CAF50"; // Color verde
+                mensaje.innerHTML = "¡Gracias! 🎉 Contamos contigo para esta gran celebración. 👯‍♀️";
+                mensaje.style.color = "#28A745"; // Color verde
             } else {
-                mensaje.innerHTML = "¡Oh, qué pena! 😢 Te echaremos mucho de menos en la fiesta.";
-                mensaje.style.color = "#F44336"; // Color rojo
+                mensaje.innerHTML = "¡Qué pena! 😢 Te echaremos mucho de menos.";
+                mensaje.style.color = "#DC3545"; // Color rojo
             }
-            // Aquí puedes agregar lógica para enviar la confirmación a un servidor
-            console.log(`Respuesta registrada: ${opcion}`);
+            
+            // Aquí registramos la respuesta usando un formulario oculto
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formspree.io/f/tu-enlace'; // Cambia por tu enlace de Formspree
+            const inputNombre = document.createElement('input');
+            inputNombre.type = 'hidden';
+            inputNombre.name = 'nombre';
+            inputNombre.value = 'Nombre de la familia'; // Cambia por lógica dinámica si es necesario
+            const inputAsistencia = document.createElement('input');
+            inputAsistencia.type = 'hidden';
+            inputAsistencia.name = 'asistencia';
+            inputAsistencia.value = opcion;
+            form.appendChild(inputNombre);
+            form.appendChild(inputAsistencia);
+            document.body.appendChild(form);
+            form.submit();
         }
     </script>
     <p class="footer">¡Hagamos que esta fiesta sea inolvidable para las gemelas! 🎨✨</p>
