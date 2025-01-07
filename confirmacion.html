@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Asistencia 🎉</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            font-size: 1.2em;
+            color: #333;
+        }
+        input, button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 ¡Confirmación de Asistencia! 🎉</h1>
+    <p>Por favor, llena el siguiente formulario para confirmar tu asistencia a la fiesta de las gemelas.</p>
+    <form action="https://your-server-endpoint.com/save" method="POST">
+        <label for="nombre">Nombre de la familia:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Familia Gómez" required>
+        <label for="asistencia">¿Asistirán?</label>
+        <select id="asistencia" name="asistencia" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+        </select>
+        <button type="submit">Confirmar Asistencia</button>
+    </form>
+</body>
+</html>
