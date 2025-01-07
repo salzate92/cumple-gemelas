@@ -6,57 +6,97 @@
     <title>Confirmación de Asistencia 🎉</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
-            background-color: #f7f9fc;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #333;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            color: #4CAF50;
+            color: #ff5722;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #333;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
         }
         form {
-            background-color: #ffffff;
-            border-radius: 10px;
+            background-color: white;
+            border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             display: inline-block;
-            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
         }
         label {
             font-size: 1.2em;
             color: #333;
         }
-        input, button {
+        input, select, button {
             margin-top: 10px;
             width: 100%;
             padding: 10px;
             font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
         button {
-            background-color: #4CAF50;
+            background-color: #ff5722;
             color: white;
             border: none;
             cursor: pointer;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #e64a19;
+        }
+        .emoji-option {
+            font-size: 2em;
+            cursor: pointer;
+            margin: 5px;
+            padding: 10px;
+            display: inline-block;
+        }
+        .emoji-option:hover {
+            transform: scale(1.1);
+        }
+        .yes {
+            color: #4CAF50;
+        }
+        .no {
+            color: #F44336;
         }
     </style>
 </head>
 <body>
-    <h1>🎉 ¡Confirmación de Asistencia! 🎉</h1>
-    <p>Por favor, llena el siguiente formulario para confirmar tu asistencia a la fiesta de las gemelas.</p>
-    <form action="https://your-server-endpoint.com/save" method="POST">
+    <h1>🎉 ¡Confirmación de Asistencia a la Fiesta de Colores! 🎉</h1>
+    <h2>Gemelas Cumpleañeras 👯‍♀️</h2>
+    <p>¡Estamos emocionados de celebrar este día tan especial contigo! Por favor, confirma tu asistencia:</p>
+    <form action="https://formspree.io/f/tu-enlace" method="POST">
         <label for="nombre">Nombre de la familia:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Familia Gómez" required>
-        <label for="asistencia">¿Asistirán?</label>
-        <select id="asistencia" name="asistencia" required>
-            <option value="">Selecciona una opción</option>
-            <option value="Sí">Sí</option>
-            <option value="No">No</option>
-        </select>
-        <button type="submit">Confirmar Asistencia</button>
+        
+        <label for="asistencia">¿Van a asistir?</label>
+        <div>
+            <span class="emoji-option yes" onclick="seleccionar('Sí')">😊</span>
+            <span class="emoji-option no" onclick="seleccionar('No')">😢</span>
+        </div>
+        <input type="hidden" id="asistencia" name="asistencia" required>
+        
+        <button type="submit">Enviar Confirmación</button>
     </form>
+
+    <script>
+        function seleccionar(valor) {
+            document.getElementById('asistencia').value = valor;
+            alert("Has seleccionado: " + (valor === 'Sí' ? '¡Nos veremos en la fiesta! 🎉' : '¡Te echaremos de menos! 😢'));
+        }
+    </script>
 </body>
 </html>
