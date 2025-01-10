@@ -75,7 +75,7 @@
 </head>
 <body>
     <h1>🎨 ¡Confirmación de la Fiesta de Colores! 🎉</h1>
-    <h2>🎉 Cumpleaños de las Gemelas 👯‍♀️</h2>
+    <h2>🎉 Cumpleaños de las Gemelas 👯‍♀️ y Daniela </h2>
     <p>¡Estamos emocionados de celebrar contigo este día tan especial!</p>
     <p>
         🌈 <strong>Temática:</strong> Fiesta de Colores (Ven con tu color asignado y trae 5 productos para compartir). <br>
@@ -88,8 +88,14 @@
     </div>
     <p>Por favor, selecciona una opción:</p>
     <div>
-        <span class="emoji-option yes" onclick="registrarAsistencia('Sí')">😄</span>
-        <span class="emoji-option no" onclick="registrarAsistencia('No')">😢</span>
+        <div class="emoji-container">
+            <span class="emoji-option yes" onclick="registrarAsistencia('Sí')">😄</span>
+            <p>Sí voy</p>
+        </div>
+        <div class="emoji-container">
+            <span class="emoji-option no" onclick="registrarAsistencia('No')">😢</span>
+            <p>No puedo ir</p>
+        </div>
     </div>
     <p id="mensaje-respuesta"></p>
 
@@ -129,6 +135,6 @@
             form.submit();
         }
     </script>
-    <p class="footer">¡Hagamos que esta fiesta sea inolvidable para las gemelas! 🎨✨</p>
+    <p class="footer">¡Hagamos que esta fiesta sea inolvidable para las gemelas y Dani! 🎨✨</p>
 </body>
 </html>
